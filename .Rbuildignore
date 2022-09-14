@@ -1,0 +1,9 @@
+^LICENSE\.md$
+^dbuild
+^data_raw
+.Rhistory
+.gitignore
+version.txt
+Dockerfile
+^covidmx\.predict\.Rproj$
+^\.Rproj\.user$

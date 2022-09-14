@@ -1,0 +1,24 @@
+Package: covidmx.predict
+Title: Modelo de Predicción de Incapacidades de COVID-19
+Version: 1.0.0.0000
+Authors@R: 
+    c(person("Rodrigo", "Zepeda-Tello", , "rzepeda17@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4471-5270")),
+      person(given = "Instituto Mexicano del Seguro Social", role = c("cph", "fnd")))
+Description: Modelo de predicción de incapacidades temporales en el trabajo por COVID-19.
+License: GPL (>= 3)
+Encoding: UTF-8
+Language: es
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    bsts,
+    cli,
+    dplyr,
+    glue,
+    lubridate,
+    RCurl,
+    readr
+Depends: 
+    R (>= 4.2.0)
+LazyData: true    

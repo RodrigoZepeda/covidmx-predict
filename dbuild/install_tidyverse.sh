@@ -51,7 +51,12 @@ install2.r --error --skipinstalled -n "$NCPUS" -r https://cloud.r-project.org/ \
     posterior \
     glue \
     ggtext \
-    bsts
+    bsts \
+    cli
+
+#Install from Github additional packages
+Rscript -e 'remotes::install_github("RodrigoZepeda/gobmx")'
+Rscript -e 'remotes::install_github("RodrigoZepeda/covidmx")'
 
 # Clean up
 rm -rf /var/lib/apt/lists/*

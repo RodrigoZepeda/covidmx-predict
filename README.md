@@ -6,16 +6,27 @@ Docker con modelo de predicción de COVID-19 (incapacidades o casos).
 
 ## Datos
 
-Los datos deben representarse en un `.csv` con la siguiente estructura (ver `casos_ejemplo.csv`)
+Los datos deben representarse en un `.csv` (encoding `UTF-8`) con la siguiente estructura (ver `casos_ejemplo.csv`)
 
-| Semana epidemiológica | Año epidemiológico | Total de casos | Entidad |
-|-----------------------|--------------------|----------------|---------|
-|         1             |         2020       |       12       |  AGS    |
-|         1             |         2020       |       84       |  NAL    |
-|         2             |         2020       |       0        |  AGS    |
-|         2             |         2020       |       5        |  NAL    |
+|    Fecha   |  Total de casos | Entidad |
+|------------|-----------------|---------|
+| 2020/01/01 |        12       |  AGS    |
+| 2020/01/01 |        84       |  BC     |
+| 2020/01/02 |        0        |  AGS    |
+| 2020/01/02 |        5        |  BC     |
 
-En caso de que se esté trabajando sólo una entidad se puede omitir la última columna. 
++ Hay **32** entidades.
++ El nacional se calcula como la suma de los casos por entidad para la misma Fecha. 
++ La fecha es en formato `ymd`. 
++ Los datos son diarios. 
+
+## Especificaciones adicionales IMSS:
+
++ El modelo comienza en 2020. 
+
++ Los códigos CIE-10 que se incluyen son:  ICD-10 (J01, J04-J06, J20, y J21), gripa (J10/ J11), neumonía (J12, J18), COVID-19 (U07.1, U07I, y U07S), y cualquier diagnóstico con la palabra COVID-19 o su sospecha. 
+
++ Se excluyen trabajadores IMSS. 
 
 ## Actualización
 

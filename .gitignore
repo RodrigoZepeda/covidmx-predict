@@ -1,0 +1,23 @@
+# Other files
+.DS_Store
+.pdf
+.png
+.zip
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.RDataTmp
+
+# User-specific files
+.Ruserdata
+.Rproj.user
+
+#Macstuff
+.DS_Store
+
+#Filders
+covid_itt_*
