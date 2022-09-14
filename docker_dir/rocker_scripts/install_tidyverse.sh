@@ -16,6 +16,7 @@ function apt_install() {
     fi
 }
 
+#This can probably be optimized haven't checked
 apt_install \
     libxml2-dev \
     libcairo2-dev \
@@ -41,22 +42,13 @@ install2.r --error --skipinstalled -n "$NCPUS" -r https://cloud.r-project.org/ \
     dplyr \
     remotes \
     scales \
-    ggplot2 \
     pacman \
-    clusterGeneration \
-    emulator \
     tidyverse \
-    bayestestR \
     lubridate \
-    posterior \
     glue \
     ggtext \
     bsts \
     cli
-
-#Install from Github additional packages
-Rscript -e 'remotes::install_github("RodrigoZepeda/gobmx")'
-Rscript -e 'remotes::install_github("RodrigoZepeda/covidmx")'
 
 # Clean up
 rm -rf /var/lib/apt/lists/*

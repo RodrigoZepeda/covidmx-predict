@@ -107,8 +107,8 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
       ggplot2::theme_classic() +
       ggplot2::labs(
         x = "Fecha",
-        y = "Incapacidades Temporales en el Trabajo",
-        title = glue::glue("Incapacidades Temporales en el Trabajo en {col}"),
+        y = "Casos",
+        title = glue::glue("{col}"),
         caption  = glue::glue("Modelo Bayesiano versión {version} elaborado el {tudei}")
       ) +
       ggplot2::scale_y_continuous(labels = scales::comma) +
@@ -139,8 +139,8 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
     ggplot2::facet_wrap(~Entidad, scales = "free_y", nrow = 8) +
     ggplot2::labs(
       x = "Fecha",
-      y = "Incapacidades Temporales en el Trabajo",
-      title    = glue::glue("Incapacidades Temporales en el Trabajo"),
+      y = "Casos",
+      title    = glue::glue("Casos"),
       subtitle = glue::glue("_Actualización al {tudei}_"),
       caption  = glue::glue("Modelo Bayesiano versión {version} elaborado el {tudei}")
     ) +
@@ -169,7 +169,7 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
     dplyr::mutate(epiweek = epiweek(Fecha)) |>
     dplyr::mutate(epiyear = epiyear(Fecha)) |>
     dplyr::mutate(Version = version) |>
-    dplyr::write_excel_csv(glue::glue("{myfolder}/modelo_dias.csv"))
+    readr::write_excel_csv(glue::glue("{myfolder}/modelo_dias.csv"))
 
 
   minimo_date <- data_model |>
@@ -205,8 +205,8 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
     ggplot2::theme_classic() +
     ggplot2::labs(
       x = "Fecha",
-      y = "Incapacidades Temporales en el Trabajo",
-      title = glue::glue("Incapacidades Temporales en el Trabajo"),
+      y = "Casos",
+      title = glue::glue("Casos"),
       caption  = glue::glue("Modelo Bayesiano versión {version} elaborado el {tudei}")
     ) +
     ggplot2::scale_y_continuous(labels = scales::comma, breaks = (0:5)*1.e5) +
@@ -222,6 +222,6 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
   ggplot2::ggsave(glue::glue("{myfolder}/Nacional_sumados.pdf"), plot_sum, width = 10, height = 5)
   ggplot2::ggsave(glue::glue("{myfolder}/Nacional_sumados.png"), plot_sum, width = 10, height = 5, dpi = 750)
 
-  cli::cli_alert_success("Elaborado modelo para el {tudei}")
+  cli::cli_alert_success("Elaborado modelo para el {tudei} version {version}")
 }
 
