@@ -23,5 +23,4 @@ ENV file_casos="casos_ejemplo.csv" \
     tipo="covid" \
     update="auto"
 
-ENTRYPOINT ["/main.R"]
-CMD [file_casos, file_encoding, dats_to_predict, tipo, update]
+ENTRYPOINT ["Rscript","./main.R"]

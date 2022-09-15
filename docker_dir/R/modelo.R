@@ -22,7 +22,7 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
                        version = "0.0.0"){
 
   #Get current date
-  tudei <- lubrodate::today() #jejeje . This is to add the same date to everything if run too late
+  tudei <- lubridate::today() #jejeje . This is to add the same date to everything if run too late
 
   data_model <- data_preprocess(datapath = datapath, encoding = "UTF-8")
   cli::cli_alert_info("Procesando datos de {.file {datapath}}")
