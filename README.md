@@ -4,13 +4,25 @@ Docker con modelo de predicción de COVID-19 (incapacidades o casos).
 
 ## Ejecución
 
+El orden de la ejecución es como sigue: 
 ```{bash}
-docker run -it covidmx:v0.5.0 "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto"
+docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "archivo_casos.csv" "encoding" "dias a predecir" "tipo de modelo" "¿actualizar modelo?"
 ```
 
-donde `casos_ejemplo.csv` es el archivo diario agregado por casos, `UTF-8` es el encoding (para [readr::read_csv()]()) (otra opción es `WINDOWS-1252`), `180` son los días a predecir (futuro), `covid` es los casos a predecir del modelo (opciones a desarrollar: dengue), `auto` es si actualizar automáticamente desde internet (opción `"no"`). 
+Como ejemplo el siguiente lee `casos_ejemplo` y predice los próximos 180 días bajo el modelo de `covid` el cual se actualiza `auto`(máticamente).  
 
-> **Nota** Para un funcionamiento óptimo requiere conexión a Internet.
+```{bash}
+ docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto
+```
+
+donde 
+
++ `casos_ejemplo.csv` es el archivo diario agregado por casos, 
++ `UTF-8` es el encoding (para [readr::read_csv()]()) (otra opción es `WINDOWS-1252`)
++ `180` son los días a predecir (futuro), `covid` es los casos a predecir del modelo (opciones a desarrollar **futuras**: `dengue`), 
++ `auto` es si actualizar el modelo automáticamente desde internet (la otra opción es `"no"`). 
+
+> **Nota** Para un funcionamiento óptimo requiere conexión a Internet si se permiten actualizaciones mediante `auto`.
 
 ## Datos
 

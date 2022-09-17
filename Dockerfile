@@ -16,11 +16,4 @@ RUN  chmod -R +x /rocker_scripts && \
      chmod -R +x main.R && \
      /rocker_scripts/install_tidyverse.sh
 
-#Add environmental variables
-ENV file_casos="casos_ejemplo.csv" \
-    file_encoding="UTF-8" \
-    days_to_predict="180" \
-    tipo="covid" \
-    update="auto"
-
 ENTRYPOINT ["Rscript","./main.R"]
