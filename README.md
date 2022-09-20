@@ -12,7 +12,7 @@ docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "a
 Como ejemplo el siguiente lee `casos_ejemplo` y predice los próximos 180 días bajo el modelo de `covid` el cual se actualiza `auto`(máticamente).  
 
 ```{bash}
- docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto
+ docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto"
 ```
 
 donde 
