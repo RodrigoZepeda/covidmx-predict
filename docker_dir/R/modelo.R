@@ -38,8 +38,7 @@ modelo_itt <- function(datapath, encoding = "UTF-8", days_to_predict = 180, tipo
 
   estados     <- colnames(casos_model)[2:ncol(casos_model)]
 
-  myfolder    <- glue::glue("{tipo}_itt_{tudei}")
-
+  myfolder    <- file.path("data",glue::glue("covid_itt_{tudei}"))
   if (dir.exists(myfolder)){
     unlink(myfolder, recursive = T, force = T)
   }
