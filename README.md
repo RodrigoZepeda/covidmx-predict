@@ -6,20 +6,20 @@ Docker con modelo de predicción de COVID-19 (incapacidades o casos).
 
 El orden de la ejecución es como sigue: 
 ```{bash}
-docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "archivo_casos.csv" "encoding" "dias a predecir" "tipo de modelo" "¿actualizar modelo?"
+docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "archivo_de_casos.csv" "encoding" "dias a predecir" "tipo de modelo" "¿actualizar modelo?"
 ```
 
-Como ejemplo el siguiente lee `casos_ejemplo` y predice los próximos 180 días bajo el modelo de `covid` el cual se actualiza `auto`(máticamente).  
+Como ejemplo el siguiente lee [`casos_ejemplo`](https://github.com/RodrigoZepeda/covidmx-predict/raw/main/casos_ejemplo.csv) y predice los próximos `180` días bajo el modelo de `covid` el cual se actualiza `auto`(máticamente).  
 
 ```{bash}
- docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto"
+docker run -it --mount src=`pwd`,target=/data,type=bind rodrigozepeda/covidmx:v0.5.0 "casos_ejemplo.csv" "UTF-8" "180" "covid" "auto"
 ```
 
 donde 
 
-+ `casos_ejemplo.csv` es el archivo diario agregado por casos, 
-+ `UTF-8` es el encoding (para [readr::read_csv()]()) (otra opción es `WINDOWS-1252`)
-+ `180` son los días a predecir (futuro), `covid` es los casos a predecir del modelo (opciones a desarrollar **futuras**: `dengue`), 
++ `casos_ejemplo.csv` es el archivo diario agregado por casos, [(descarga el ejemplo)](https://github.com/RodrigoZepeda/covidmx-predict/raw/main/casos_ejemplo.csv) 
++ `UTF-8` es el encoding (para [readr::read_csv()](https://readr.tidyverse.org/reference/read_delim.html)) (otra opción es `WINDOWS-1252`)
++ `180` son los días a predecir (futuro), `covid` es los casos a predecir del modelo (opciones a agregar **futuras**: `dengue`), 
 + `auto` es si actualizar el modelo automáticamente desde internet (la otra opción es `"no"`). 
 
 > **Nota** Para un funcionamiento óptimo requiere conexión a Internet si se permiten actualizaciones mediante `auto`.
